@@ -1,28 +1,30 @@
-Concepts practiced:
+## Requirements
 
-CTEs
-Window functions
-COUNT() OVER()
-AVG() OVER()
-MIN() OVER()
-PARTITION BY
-DISTINCT
-Filtering
-ORDER BY
+- Consider only enrollments with a `completed` status.
+- Students must have completed at least **2 courses**.
+- Every completed course must have a score of **80 or above**.
+- Calculate the average score for each student.
+- Sort the final results by average score in descending order.
 
-Requirements:
-  1.Consider only completed enrollments.
-  2.Student must have at least 2 completed courses.
-  3.Every completed score must be at least 80.
-  4.Calculate the student's average score.
-  5.Sort students by average score in descending order.
+## Approach
 
-Approach:
+1. Create a CTE to calculate student-level performance metrics.
+2. Use `COUNT() OVER()` to determine the number of completed courses.
+3. Use `AVG() OVER()` to calculate each student's average score.
+4. Use `MIN() OVER()` to identify each student's lowest completed score.
+5. Filter students with at least two completed courses.
+6. Ensure the minimum score is at least 80.
+7. Use `DISTINCT` to return one record per qualifying student.
+8. Order the results by average score from highest to lowest.
 
-  1.Use a CTE to calculate student-level statistics.
-  2.Use COUNT() to count completed courses.
-  3.Use AVG() to calculate each student's average score.
-  4.Use MIN() to find each student's lowest score.
-  5.Filter students with at least two courses and a minimum score of 80.
-  6.Use DISTINCT to remove repeated rows produced by the window functions.
-  7.Sort the final results by average score.
+## SQL Concepts
+
+- Common Table Expressions (CTEs)
+- Window Functions
+- `COUNT() OVER()`
+- `AVG() OVER()`
+- `MIN() OVER()`
+- `PARTITION BY`
+- `DISTINCT`
+- `WHERE`
+- `ORDER BY`
